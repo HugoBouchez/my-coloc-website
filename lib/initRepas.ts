@@ -33,22 +33,21 @@ export const migrateFridayToMonday = (): void => {
 }
 
 // Fonction pour obtenir les repas initiaux
-// Tous les 4 jours du lundi au jeudi
+// Commence le lundi 5 janvier avec Amélie, puis continue du lundi au jeudi
 const getInitialRepas = (): Omit<Repas, 'id'>[] => {
-  const today = new Date()
-  let nextMonday = getMondayOfWeek(today)
+  const currentYear = new Date().getFullYear()
   
-  // Si aujourd'hui est déjà lundi ou après dans la semaine, commencer le lundi suivant
-  if (today.getDay() > 1 || (today.getDay() === 1 && today.getHours() >= 12)) {
-    nextMonday.setDate(nextMonday.getDate() + 7)
-  }
+  // Trouver le lundi de la semaine contenant le 5 janvier
+  // Le premier repas sera le lundi 5 janvier (ou le lundi de cette semaine)
+  const jan5 = new Date(currentYear, 0, 5) // 0 = janvier
+  const startMonday = getMondayOfWeek(jan5)
   
   const cuisiniers = ['Amélie', 'Sara', 'William', 'Dorian', 'Nicks', 'Justine', 'Hugo']
   const repas: Omit<Repas, 'id'>[] = []
   
   // Générer 4 cycles (16 repas au total)
   for (let cycle = 0; cycle < 4; cycle++) {
-    const startDate = new Date(nextMonday)
+    const startDate = new Date(startMonday)
     startDate.setDate(startDate.getDate() + (cycle * 7)) // Tous les 7 jours (4 jours de repas + 3 jours de pause)
     
     // Lundi, mardi, mercredi, jeudi (4 jours)
