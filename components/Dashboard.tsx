@@ -57,24 +57,24 @@ export default function Dashboard() {
   }, [loadData])
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4 sm:space-y-8">
       {/* Bouton de rafraîchissement */}
       <div className="flex justify-end">
         <button
           onClick={loadData}
-          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors text-sm"
+          className="bg-green-600 text-white px-3 py-2 sm:px-4 rounded hover:bg-green-700 transition-colors text-xs sm:text-sm"
         >
           🔄 Actualiser
         </button>
       </div>
 
       {/* Repas à venir */}
-      <section className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-2xl font-bold mb-4">🍽️ Repas à venir</h2>
-        <div className="grid md:grid-cols-2 gap-4">
+      <section className="bg-white rounded-lg shadow-md p-3 sm:p-6">
+        <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">🍽️ Repas à venir</h2>
+        <div className="grid md:grid-cols-2 gap-3 sm:gap-4">
           {/* Repas aujourd'hui */}
-          <div className="border-2 border-green-200 rounded-lg p-4 bg-green-50">
-            <h3 className="font-semibold text-lg mb-2">Aujourd&apos;hui</h3>
+          <div className="border-2 border-green-200 rounded-lg p-3 sm:p-4 bg-green-50">
+            <h3 className="font-semibold text-base sm:text-lg mb-2">Aujourd&apos;hui</h3>
             {repasAujourdhui ? (
               <div>
                 <p className="text-gray-700 mb-2">
@@ -129,8 +129,8 @@ export default function Dashboard() {
           </div>
 
           {/* Repas demain */}
-          <div className="border-2 border-green-200 rounded-lg p-4 bg-green-50">
-            <h3 className="font-semibold text-lg mb-2">Demain</h3>
+          <div className="border-2 border-green-200 rounded-lg p-3 sm:p-4 bg-green-50">
+            <h3 className="font-semibold text-base sm:text-lg mb-2">Demain</h3>
             {repasDemain ? (
               <div>
                 <p className="text-gray-700 mb-2">
@@ -187,12 +187,12 @@ export default function Dashboard() {
       </section>
 
       {/* Tâches prioritaires */}
-      <section className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-2xl font-bold mb-4">✅ Tâches prioritaires</h2>
+      <section className="bg-white rounded-lg shadow-md p-3 sm:p-6">
+        <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">✅ Tâches prioritaires</h2>
         {tachesCetteSemaine.length > 0 ? (
           <div>
             <h3 className="font-semibold text-lg mb-4 text-green-600">Tâches de la semaine ({tachesCetteSemaine[0]?.semaine})</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
               {PERSONNES_COLOC.map((personne) => {
                 // Trouver toutes les tâches assignées à cette personne cette semaine
                 const tachesPersonne: Array<{ tache: string; label: string }> = []

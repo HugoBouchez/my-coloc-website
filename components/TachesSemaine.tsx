@@ -119,12 +119,12 @@ export default function TachesSemaine() {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6">
-      <div className="mb-4 flex justify-between items-center">
-        <h2 className="text-xl font-semibold">Calendrier des tâches</h2>
+    <div className="bg-white rounded-lg shadow-md p-3 sm:p-6">
+      <div className="mb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+        <h2 className="text-lg sm:text-xl font-semibold">Calendrier des tâches</h2>
         <button
           onClick={handleAddSemaine}
-          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors shadow-md"
+          className="bg-green-600 text-white px-3 py-2 sm:px-4 rounded hover:bg-green-700 transition-colors shadow-md text-xs sm:text-sm w-full sm:w-auto"
         >
           + Ajouter une semaine
         </button>
@@ -133,7 +133,7 @@ export default function TachesSemaine() {
       {/* Modal pour ajouter une semaine */}
       {showAddModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+          <div className="bg-white rounded-lg p-4 sm:p-6 max-w-md w-full mx-2 sm:mx-4">
             <h3 className="text-xl font-bold mb-4">Ajouter une semaine</h3>
             <div className="space-y-4">
               <div>
@@ -188,13 +188,13 @@ export default function TachesSemaine() {
           <table className="min-w-full border-collapse border border-gray-300">
             <thead>
               <tr className="bg-gray-100">
-                <th className="border border-gray-300 px-4 py-2 text-left">Semaine</th>
+                <th className="border border-gray-300 px-2 sm:px-4 py-2 text-left text-xs sm:text-sm">Semaine</th>
                 {COLUMNS.map((col) => (
-                  <th key={col.key} className="border border-gray-300 px-4 py-2 text-left">
+                  <th key={col.key} className="border border-gray-300 px-2 sm:px-4 py-2 text-left text-xs sm:text-sm">
                     {col.label}
                   </th>
                 ))}
-                <th className="border border-gray-300 px-4 py-2 text-left">Actions</th>
+                <th className="border border-gray-300 px-2 sm:px-4 py-2 text-left text-xs sm:text-sm">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -205,7 +205,7 @@ export default function TachesSemaine() {
                     key={tache.id}
                     className={isCurrentWeek ? 'bg-yellow-50' : ''}
                   >
-                    <td className="border border-gray-300 px-4 py-2 font-medium">
+                    <td className="border border-gray-300 px-2 sm:px-4 py-2 font-medium text-xs sm:text-sm">
                       {tache.semaine}
                       {isCurrentWeek && (
                         <span className="ml-2 text-xs bg-yellow-400 px-2 py-1 rounded">
@@ -218,7 +218,7 @@ export default function TachesSemaine() {
                       return (
                         <td 
                           key={col.key} 
-                          className="border border-gray-300 px-4 py-2 cursor-pointer hover:bg-gray-50 transition-colors"
+                          className="border border-gray-300 px-2 sm:px-4 py-2 cursor-pointer hover:bg-gray-50 transition-colors text-xs sm:text-sm"
                           onClick={() => {
                             if (!isEditing) {
                               handleEdit(tache.id, col.key, getCellValue(tache, col.key))

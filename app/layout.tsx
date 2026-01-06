@@ -1,10 +1,16 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 
 export const metadata: Metadata = {
   title: 'Ma Coloc - Site Collaboratif',
   description: 'Organisation des tâches, repas et courses pour la colocation',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 }
 
 export default function RootLayout({
@@ -28,7 +34,7 @@ export default function RootLayout({
         {/* Contenu */}
         <div className="relative z-10">
           <Navigation />
-          <main className="container mx-auto px-4 py-8">
+          <main className="container mx-auto px-2 sm:px-4 py-4 sm:py-8">
             {children}
           </main>
         </div>

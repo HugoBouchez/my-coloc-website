@@ -93,9 +93,9 @@ export default function ListeCourses() {
   const coursesTotal = courses.length
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6">
+    <div className="bg-white rounded-lg shadow-md p-3 sm:p-6">
       {/* Formulaire d'ajout */}
-      <div className="mb-6 flex gap-2">
+      <div className="mb-4 sm:mb-6 flex gap-2">
         <input
           type="text"
           value={newItem}
@@ -104,11 +104,11 @@ export default function ListeCourses() {
             if (e.key === 'Enter') handleAdd()
           }}
           placeholder="Ajouter un article..."
-          className="flex-1 border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="flex-1 border border-gray-300 rounded px-3 sm:px-4 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <button
           onClick={handleAdd}
-          className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition-colors"
+          className="bg-green-600 text-white px-4 sm:px-6 py-2 rounded hover:bg-green-700 transition-colors text-sm sm:text-base"
         >
           Ajouter
         </button>
@@ -116,8 +116,8 @@ export default function ListeCourses() {
 
       {/* Statistiques */}
       {coursesTotal > 0 && (
-        <div className="mb-4 p-3 bg-green-50 rounded-lg">
-          <p className="text-sm text-gray-700">
+        <div className="mb-4 p-2 sm:p-3 bg-green-50 rounded-lg">
+          <p className="text-xs sm:text-sm text-gray-700">
             <span className="font-semibold">{coursesTotal - coursesAchetes}</span> article(s) à acheter
             {coursesAchetes > 0 && (
               <>

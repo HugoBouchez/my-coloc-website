@@ -101,29 +101,29 @@ export default function RepasCalendar() {
   const emptyDays = Array(firstDayOfWeek).fill(null)
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6">
+    <div className="bg-white rounded-lg shadow-md p-3 sm:p-6">
       {/* Contrôles du mois */}
-      <div className="mb-6 flex justify-between items-center">
+      <div className="mb-4 sm:mb-6 flex justify-between items-center gap-2">
         <button
           onClick={() => handleMonthChange(-1)}
-          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors shadow-md"
+          className="bg-green-600 text-white px-2 py-1 sm:px-4 sm:py-2 rounded hover:bg-green-700 transition-colors shadow-md text-xs sm:text-sm"
         >
-          ← Mois précédent
+          ← Préc.
         </button>
-        <h2 className="text-2xl font-bold capitalize">{monthName}</h2>
+        <h2 className="text-lg sm:text-2xl font-bold capitalize text-center flex-1">{monthName}</h2>
         <button
           onClick={() => handleMonthChange(1)}
-          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors shadow-md"
+          className="bg-green-600 text-white px-2 py-1 sm:px-4 sm:py-2 rounded hover:bg-green-700 transition-colors shadow-md text-xs sm:text-sm"
         >
-          Mois suivant →
+          Suiv. →
         </button>
       </div>
 
       {/* Calendrier */}
-      <div className="grid grid-cols-7 gap-2">
+      <div className="grid grid-cols-7 gap-1 sm:gap-2">
         {/* En-têtes des jours */}
         {['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'].map((day) => (
-          <div key={day} className="font-semibold text-center py-2 bg-gray-100 rounded">
+          <div key={day} className="font-semibold text-center py-1 sm:py-2 bg-gray-100 rounded text-xs sm:text-sm">
             {day}
           </div>
         ))}
@@ -143,23 +143,23 @@ export default function RepasCalendar() {
             <div
               key={dateStr}
               onClick={() => handleDayClick(day)}
-              className={`min-h-24 border-2 rounded p-2 cursor-pointer transition-colors ${
+              className={`min-h-16 sm:min-h-24 border-2 rounded p-1 sm:p-2 cursor-pointer transition-colors ${
                 isTodayDate
                   ? 'border-green-500 bg-green-50'
                   : 'border-gray-200 hover:border-green-300 hover:bg-gray-50'
               }`}
             >
-              <div className="font-semibold mb-1">
+              <div className="font-semibold mb-1 text-xs sm:text-sm">
                 {day.getDate()}
-                {isTodayDate && <span className="ml-1 text-xs text-green-600">(Aujourd&apos;hui)</span>}
+                {isTodayDate && <span className="ml-1 text-xs text-green-600 hidden sm:inline">(Aujourd&apos;hui)</span>}
               </div>
               {repasDuJour && (
-                <div className="text-sm text-gray-700 mt-1">
-                  <div className="font-medium">🍽️ {repasDuJour.cuisinier}</div>
+                <div className="text-xs sm:text-sm text-gray-700 mt-1">
+                  <div className="font-medium truncate">🍽️ {repasDuJour.cuisinier}</div>
                 </div>
               )}
               {!repasDuJour && (
-                <div className="text-xs text-gray-400 mt-1">Cliquer pour ajouter</div>
+                <div className="text-xs text-gray-400 mt-1 hidden sm:block">Cliquer pour ajouter</div>
               )}
             </div>
           )
@@ -169,7 +169,7 @@ export default function RepasCalendar() {
       {/* Modal pour ajouter/modifier */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+          <div className="bg-white rounded-lg p-4 sm:p-6 max-w-md w-full mx-2 sm:mx-4">
             <h3 className="text-xl font-bold mb-4">
               {editingRepas ? 'Modifier le repas' : 'Ajouter un repas'}
             </h3>
