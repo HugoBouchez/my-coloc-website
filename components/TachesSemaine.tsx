@@ -181,7 +181,7 @@ export default function TachesSemaine() {
 
       {taches.length === 0 ? (
         <p className="text-gray-500 italic text-center py-8">
-          Aucune semaine ajoutée. Cliquez sur "Ajouter une semaine" pour commencer.
+          Aucune semaine ajoutée. Cliquez sur &quot;Ajouter une semaine&quot; pour commencer.
         </p>
       ) : (
         <div className="overflow-x-auto">

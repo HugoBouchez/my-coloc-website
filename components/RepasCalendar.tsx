@@ -151,7 +151,7 @@ export default function RepasCalendar() {
             >
               <div className="font-semibold mb-1">
                 {day.getDate()}
-                {isTodayDate && <span className="ml-1 text-xs text-green-600">(Aujourd'hui)</span>}
+                {isTodayDate && <span className="ml-1 text-xs text-green-600">(Aujourd&apos;hui)</span>}
               </div>
               {repasDuJour && (
                 <div className="text-sm text-gray-700 mt-1">

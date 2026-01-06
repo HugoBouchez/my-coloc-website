@@ -11,13 +11,6 @@ export default function ListeCourses() {
   const [editingId, setEditingId] = useState<string | null>(null)
   const [editValue, setEditValue] = useState('')
 
-  const loadCoursesCallback = useCallback(() => {
-    loadCourses()
-  }, [])
-
-  // Synchroniser avec les changements de localStorage
-  useStorageSync(loadCoursesCallback)
-
   const loadCourses = useCallback(() => {
     const loadedCourses = getCourses().sort((a, b) => {
       if (a.achete !== b.achete) {
